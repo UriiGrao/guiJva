@@ -10,5 +10,12 @@ package Models;
  * @author uriigrao
  */
 public class Partituras {
+    private String codigo;
+    private String tittle;
+    private String artista;
+    private String instrumento;
+    private String genero;
+    private String dificultad;
+    private boolean impresa;
     
 }
