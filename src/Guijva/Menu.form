@@ -80,11 +80,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Dar de Alta Partitura"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAltaPartiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonModiParti">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Partitura"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonModiPartiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonBorrarParti">
       <Properties>

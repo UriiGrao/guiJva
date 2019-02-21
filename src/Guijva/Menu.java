@@ -40,8 +40,18 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         buttonAltaParti.setText("Dar de Alta Partitura");
+        buttonAltaParti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAltaPartiActionPerformed(evt);
+            }
+        });
 
         buttonModiParti.setText("Modificar Partitura");
+        buttonModiParti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonModiPartiActionPerformed(evt);
+            }
+        });
 
         buttonBorrarParti.setText("Borrar Partitura");
 
@@ -102,6 +112,20 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonAltaPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAltaPartiActionPerformed
+        Alta pestaa = new Alta(null, true);
+        pestaa.setVisible(true);
+        pestaa.setLocationRelativeTo(null);
+        Menu.this.dispose();
+    }//GEN-LAST:event_buttonAltaPartiActionPerformed
+
+    private void buttonModiPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModiPartiActionPerformed
+        Modificar pestaa = new Modificar(null, true);
+        pestaa.setVisible(true);
+        pestaa.setLocationRelativeTo(null);
+        Menu.this.dispose();
+    }//GEN-LAST:event_buttonModiPartiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
