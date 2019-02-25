@@ -54,6 +54,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         buttonBorrarParti.setText("Borrar Partitura");
+        buttonBorrarParti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBorrarPartiActionPerformed(evt);
+            }
+        });
 
         buttonVerParti.setText("Ver Partituras");
 
@@ -126,6 +131,13 @@ public class Menu extends javax.swing.JFrame {
         pestaa.setLocationRelativeTo(null);
         Menu.this.dispose();
     }//GEN-LAST:event_buttonModiPartiActionPerformed
+
+    private void buttonBorrarPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBorrarPartiActionPerformed
+        BorrarParti pestaa = new BorrarParti(null, true);
+        pestaa.setVisible(true);
+        pestaa.setLocationRelativeTo(null);
+        Menu.this.dispose();
+    }//GEN-LAST:event_buttonBorrarPartiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
