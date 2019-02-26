@@ -11,17 +11,17 @@ package Models;
  */
 public class Partituras {
     private String codigo;
-    private String tittle;
+    private String title;
     private String artista;
     private String instrumento;
     private String genero;
     private String dificultad;
     private boolean impresa;
 
-    public Partituras(String codigo, String tittle, String artista, String instrumento, 
+    public Partituras(String codigo, String title, String artista, String instrumento, 
             String genero, String dificultad, boolean impresa) {
         this.codigo = codigo;
-        this.tittle = tittle;
+        this.title = title;
         this.artista = artista;
         this.instrumento = instrumento;
         this.genero = genero;
@@ -37,12 +37,12 @@ public class Partituras {
         this.codigo = codigo;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTittle(String title) {
+        this.title = title;
     }
 
     public String getArtista() {

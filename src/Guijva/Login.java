@@ -101,9 +101,9 @@ public class Login extends javax.swing.JDialog {
         boolean userVerify = userVerify(userForm.getText(), passForm.getText());
         if (userVerify == false) {
             Menu menu = new Menu(userForm.getText());
-            menu.setVisible(true);
             menu.setLocationRelativeTo(null);
-            Login.this.dispose();
+            menu.setVisible(true);
+            dispose();
         } else {
             resposValid.setForeground(Color.red);
             resposValid.setText("CREDENCIALES INCORRECTAS");

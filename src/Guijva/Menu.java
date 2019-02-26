@@ -5,18 +5,26 @@
  */
 package Guijva;
 
+import App.*;
+import Models.*;
+
 /**
  *
  * @author uriigrao
  */
 public class Menu extends javax.swing.JFrame {
-
+    
+    User user;
+    
     /**
      * Creates new form Menu
+     *
+     * @param nameUser
      */
     public Menu(String nameUser) {
         initComponents();
         veriryAdmin(nameUser);
+        user = App.users.get(nameUser);
     }
 
     /**
@@ -78,12 +86,12 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(179, 179, 179)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonAllParti, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonVerParti, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonBorrarParti, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonModiParti, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonAltaParti)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(buttonAllParti, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                            .addComponent(buttonVerParti, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                            .addComponent(buttonBorrarParti, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                            .addComponent(buttonModiParti, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                            .addComponent(buttonAltaParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(buttonExit)))
@@ -119,24 +127,21 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAltaPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAltaPartiActionPerformed
-        Alta pestaa = new Alta(null, true);
-        pestaa.setVisible(true);
+        Alta pestaa = new Alta(null, true, user);
         pestaa.setLocationRelativeTo(null);
-        Menu.this.dispose();
+        pestaa.setVisible(true);
     }//GEN-LAST:event_buttonAltaPartiActionPerformed
 
     private void buttonModiPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModiPartiActionPerformed
         Modificar pestaa = new Modificar(null, true);
-        pestaa.setVisible(true);
         pestaa.setLocationRelativeTo(null);
-        Menu.this.dispose();
+        pestaa.setVisible(true);
     }//GEN-LAST:event_buttonModiPartiActionPerformed
 
     private void buttonBorrarPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBorrarPartiActionPerformed
-        BorrarParti pestaa = new BorrarParti(null, true);
-        pestaa.setVisible(true);
+        BorrarParti pestaa = new BorrarParti(null, true, user);
         pestaa.setLocationRelativeTo(null);
-        Menu.this.dispose();
+        pestaa.setVisible(true);
     }//GEN-LAST:event_buttonBorrarPartiActionPerformed
 
 

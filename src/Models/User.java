@@ -5,6 +5,8 @@
  */
 package Models;
 
+import Utils.*;
+import java.util.HashMap;
 
 /**
  *
@@ -14,10 +16,12 @@ public class User {
 
     private String userName;
     private String password;
+    private HashMap<String, Partituras> partituras;
 
     public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
+        this.partituras = new HashMap<>();
     }
 
     public String getUserName() {
@@ -36,4 +40,19 @@ public class User {
         this.password = password;
     }
 
+    public HashMap<String, Partituras> getPartituras() {
+        return partituras;
+    }
+
+    public void setPartituras(HashMap<String, Partituras> partituras) {
+        this.partituras = partituras;
+    }
+
+    public void putPartitura(String code, Partituras partitura) throws MiExcepcion {
+        if (!this.partituras.containsKey(code)) {
+            partituras.put(code, partitura);
+        } else {
+            throw new MiExcepcion("El codigo se repite!");
+        }
+    }
 }
