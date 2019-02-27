@@ -85,5 +85,11 @@ public class Partituras {
         this.impresa = impresa;
     }
     
-    
+    @Override
+    public String toString() {
+        String string = getCodigo() + " - " + getTitle()+ " - " + getArtista() + " - " + getInstrumento() + 
+                " - " + getGenero() + " - " + getDificultad();
+        
+        return string;
+    }
 }

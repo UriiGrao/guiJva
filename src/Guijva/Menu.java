@@ -69,10 +69,20 @@ public class Menu extends javax.swing.JFrame {
         });
 
         buttonVerParti.setText("Ver Partituras");
+        buttonVerParti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonVerPartiActionPerformed(evt);
+            }
+        });
 
         buttonAllParti.setText("Totales");
 
         buttonDarAltaUser.setText("Dar Alta Usuario");
+        buttonDarAltaUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDarAltaUserActionPerformed(evt);
+            }
+        });
 
         buttonBorrarUser.setText("Borrar Usuario");
 
@@ -87,10 +97,10 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(179, 179, 179)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(buttonAllParti, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                            .addComponent(buttonVerParti, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                            .addComponent(buttonBorrarParti, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                            .addComponent(buttonModiParti, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                            .addComponent(buttonAllParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonVerParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonBorrarParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonModiParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonAltaParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -143,6 +153,18 @@ public class Menu extends javax.swing.JFrame {
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonBorrarPartiActionPerformed
+
+    private void buttonDarAltaUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDarAltaUserActionPerformed
+        AltaUser pestaa = new AltaUser(null, true);
+        pestaa.setLocationRelativeTo(null);
+        pestaa.setVisible(true);
+    }//GEN-LAST:event_buttonDarAltaUserActionPerformed
+
+    private void buttonVerPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVerPartiActionPerformed
+        Ver pestaa = new Ver(null, true, user);
+        pestaa.setLocationRelativeTo(null);
+        pestaa.setVisible(true);
+    }//GEN-LAST:event_buttonVerPartiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

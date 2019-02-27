@@ -79,14 +79,14 @@ public class Alta extends javax.swing.JDialog {
         buttonClose.setText("Close");
         buttonClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCloseActionPerformed(evt);
+                closeWindow(evt);
             }
         });
 
         buttonDarAlta.setText("Dar de Alta");
         buttonDarAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDarAltaActionPerformed(evt);
+                altaPartitura(evt);
             }
         });
 
@@ -171,11 +171,11 @@ public class Alta extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCloseActionPerformed
+    private void closeWindow(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeWindow
         this.dispose();
-    }//GEN-LAST:event_buttonCloseActionPerformed
+    }//GEN-LAST:event_closeWindow
 
-    private void buttonDarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDarAltaActionPerformed
+    private void altaPartitura(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaPartitura
         String code = textCode.getText();
         String title = textTitle.getText();
         String artista = textArtista.getText();
@@ -189,6 +189,7 @@ public class Alta extends javax.swing.JDialog {
             Partituras partitura = new Partituras(code, title, artista, instrumento, genMusical, nDificultat, impreso);
             try {
                 user.putPartitura(code, partitura);
+                App.partiturasUser.add(partitura);
                 JOptionPane.showMessageDialog(this, "Partitura Insertada Correctamente!");
                 this.dispose();
             } catch (MiExcepcion mx) {
@@ -197,7 +198,7 @@ public class Alta extends javax.swing.JDialog {
         } else {
             JOptionPane.showMessageDialog(this, "Error algun Campo esta Vacio", "Error Alta", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_buttonDarAltaActionPerformed
+    }//GEN-LAST:event_altaPartitura
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

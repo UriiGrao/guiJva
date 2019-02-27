@@ -28,10 +28,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="buttonAllParti" pref="177" max="32767" attributes="0"/>
-                          <Component id="buttonVerParti" pref="177" max="32767" attributes="0"/>
-                          <Component id="buttonBorrarParti" pref="177" max="32767" attributes="0"/>
-                          <Component id="buttonModiParti" pref="177" max="32767" attributes="0"/>
+                          <Component id="buttonAllParti" max="32767" attributes="0"/>
+                          <Component id="buttonVerParti" max="32767" attributes="0"/>
+                          <Component id="buttonBorrarParti" max="32767" attributes="0"/>
+                          <Component id="buttonModiParti" max="32767" attributes="0"/>
                           <Component id="buttonAltaParti" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -104,6 +104,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Partituras"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonVerPartiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonAllParti">
       <Properties>
@@ -114,6 +117,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Dar Alta Usuario"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDarAltaUserActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonBorrarUser">
       <Properties>
