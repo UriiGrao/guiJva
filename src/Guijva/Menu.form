@@ -112,6 +112,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Totales"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAllPartiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonDarAltaUser">
       <Properties>

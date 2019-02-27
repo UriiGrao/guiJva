@@ -76,6 +76,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         buttonAllParti.setText("Totales");
+        buttonAllParti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAllPartiActionPerformed(evt);
+            }
+        });
 
         buttonDarAltaUser.setText("Dar Alta Usuario");
         buttonDarAltaUser.addActionListener(new java.awt.event.ActionListener() {
@@ -161,10 +166,16 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDarAltaUserActionPerformed
 
     private void buttonVerPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVerPartiActionPerformed
-        Ver pestaa = new Ver(null, true, user);
+        VerOneToOne pestaa = new VerOneToOne(null, true, user);
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonVerPartiActionPerformed
+
+    private void buttonAllPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllPartiActionPerformed
+        VerAll pestaa = new VerAll(null, true, user);
+        pestaa.setLocationRelativeTo(null);
+        pestaa.setVisible(true);
+    }//GEN-LAST:event_buttonAllPartiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

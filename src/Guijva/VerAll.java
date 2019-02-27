@@ -7,19 +7,21 @@ package Guijva;
 
 import Models.*;
 import App.*;
-import Utils.*;
 
 /**
  *
  * @author uriigrao
  */
-public class Ver extends javax.swing.JDialog {
+public class VerAll extends javax.swing.JDialog {
     
     User user;
     /**
      * Creates new form Ver
+     * @param parent
+     * @param modal
+     * @param user
      */
-    public Ver(java.awt.Frame parent, boolean modal, User user) {
+    public VerAll(java.awt.Frame parent, boolean modal, User user) {
         super(parent, modal);
         initComponents();
         verPartituras();
@@ -81,9 +83,7 @@ public class Ver extends javax.swing.JDialog {
     private void verPartituras() {
         String text = "";
         text += "<html><body> ";
-        for (Partituras partitura : this.user.getPartituras()) {
-            text += partitura.toString() + " <br> ";
-        }
+        text = App.partiturasUser.stream().map((partitura) -> partitura.toString() + " <br> ").reduce(text, String::concat);
         text += " </body></html> ";
         textPartituras.setText(text);
     }
