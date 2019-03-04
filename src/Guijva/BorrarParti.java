@@ -4,15 +4,23 @@
  * and open the template in the editor.
  */
 package Guijva;
+
+import App.*;
 import Models.*;
+import java.util.*;
+import javax.swing.*;
+
 /**
  *
  * @author uriigrao
  */
 public class BorrarParti extends javax.swing.JDialog {
+
     User user;
+
     /**
      * Creates new form BorrarParti
+     *
      * @param parent
      * @param modal
      * @param user
@@ -21,6 +29,7 @@ public class BorrarParti extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         user = user;
+        verPartituras();
     }
 
     /**
@@ -33,16 +42,21 @@ public class BorrarParti extends javax.swing.JDialog {
     private void initComponents() {
 
         buttonDelete = new javax.swing.JButton();
-        buttonDelete1 = new javax.swing.JButton();
-        selectParti = new javax.swing.JComboBox<>();
+        bClose = new javax.swing.JButton();
+        deleteSelect = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         buttonDelete.setText("Borrar");
 
-        buttonDelete1.setText("close");
+        bClose.setText("close");
+        bClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCloseActionPerformed(evt);
+            }
+        });
 
-        selectParti.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "parti1", "parti2", "etcs..." }));
+        deleteSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "parti1", "parti2", "etcs..." }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,10 +66,10 @@ public class BorrarParti extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonDelete1))
+                        .addComponent(bClose))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(selectParti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(deleteSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                         .addComponent(buttonDelete)))
                 .addGap(43, 43, 43))
@@ -65,21 +79,28 @@ public class BorrarParti extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(selectParti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonDelete))
                 .addGap(18, 18, 18)
-                .addComponent(buttonDelete1)
+                .addComponent(bClose)
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCloseActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_bCloseActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonClose;
-    private javax.swing.JButton buttonClose1;
-    private javax.swing.JButton buttonClose2;
+    private javax.swing.JButton bClose;
     private javax.swing.JButton buttonDelete;
-    private javax.swing.JButton buttonDelete1;
-    private javax.swing.JComboBox<String> selectParti;
+    private javax.swing.JComboBox<String> deleteSelect;
     // End of variables declaration//GEN-END:variables
+
+    private void verPartituras() {
+        ArrayList<String> listaPartis = Functions.getAllpartisName(user);
+        deleteSelect.setModel(new DefaultComboBoxModel(listaPartis.toArray()));
+    }
 }

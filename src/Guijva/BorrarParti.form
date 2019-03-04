@@ -27,11 +27,11 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="buttonDelete1" min="-2" max="-2" attributes="0"/>
+                      <Component id="bClose" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="selectParti" min="-2" max="-2" attributes="0"/>
+                      <Component id="deleteSelect" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="157" max="32767" attributes="0"/>
                       <Component id="buttonDelete" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -45,11 +45,11 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="selectParti" min="-2" max="-2" attributes="0"/>
+                  <Component id="deleteSelect" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonDelete" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="buttonDelete1" min="-2" max="-2" attributes="0"/>
+              <Component id="bClose" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="73" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -61,12 +61,15 @@
         <Property name="text" type="java.lang.String" value="Borrar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonDelete1">
+    <Component class="javax.swing.JButton" name="bClose">
       <Properties>
         <Property name="text" type="java.lang.String" value="close"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bCloseActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="selectParti">
+    <Component class="javax.swing.JComboBox" name="deleteSelect">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">

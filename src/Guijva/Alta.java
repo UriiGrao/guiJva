@@ -192,7 +192,7 @@ public class Alta extends javax.swing.JDialog {
             Partituras partitura = new Partituras(code, title, artista, instrumento, genMusical, nDificultat, impreso);
             try {
                 user.putPartitura(code, partitura);
-                App.partiturasUser.add(partitura);
+                App.partituras.add(partitura);
                 JOptionPane.showMessageDialog(this, "Partitura Insertada Correctamente!");
                 this.dispose();
             } catch (MiExcepcion mx) {

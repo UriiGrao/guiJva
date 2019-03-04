@@ -16,23 +16,23 @@ import java.io.*;
  * @author uriigrao
  */
 public class App {
-    
+
     public static boolean fichero = false;
     public static Map<String, User> users = new HashMap<>();
-    public static ArrayList<Partituras> partiturasUser = new ArrayList<>();
-    
+    public static ArrayList<Partituras> partituras = new ArrayList<>();
+
     public static void main(String[] args) {
         leerFicheros();
-        
+
         Login login = new Login(null, true);
         login.setLocationRelativeTo(null);
         login.setVisible(true);
     }
-    
+
     private static void leerFicheros() {
         File usersF = new File("usuarios.txt");
         File partis = new File("partis.txt");
-        
+
         FileReader frU = null;
         FileReader frP = null;
         if (usersF.exists() && partis.exists()) {
@@ -42,19 +42,19 @@ public class App {
                 BufferedReader brU = new BufferedReader(frU);
                 BufferedReader brP = new BufferedReader(frP);
                 String line;
-                
+
                 while ((line = brU.readLine()) != null) {
                     String[] breakLine = line.split(" ");
                     if (breakLine.length == 3) {
                         String[] partituras = breakLine[3].toLowerCase().split(":");
                         for (String partitura : partituras) {
                             boolean impres = false;
-                            
+
                             String[] partPartitura = partitura.toLowerCase().split(",");
                             if ("true".equals(partPartitura[6])) {
                                 impres = true;
                             }
-                            partiturasUser.add(new Partituras(partPartitura[0], partPartitura[1], partPartitura[2], partPartitura[3],
+                            App.partituras.add(new Partituras(partPartitura[0], partPartitura[1], partPartitura[2], partPartitura[3],
                                     partPartitura[4], partPartitura[5], impres));
                         }
                     } else if (breakLine.length == 2) {
@@ -73,7 +73,7 @@ public class App {
                         System.out.println(mx.getMessage());
                     }
                 }
-                
+
             } catch (IOException ioex) {
                 System.out.println("Error Al Leer: " + ioex.getMessage());
             }
