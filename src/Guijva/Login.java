@@ -6,11 +6,7 @@
 package Guijva;
 
 import App.*;
-import Models.*;
-import Utils.*;
 import java.awt.Color;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 /**
  *
@@ -20,6 +16,8 @@ public class Login extends javax.swing.JDialog {
 
     /**
      * Creates new form Login
+     * @param parent
+     * @param modal
      */
     public Login(java.awt.Frame parent, boolean modal) {
 

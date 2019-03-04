@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package Guijva;
-import Utils.*;
 import Models.*;
-import App.*;
 /**
  *
  * @author uriigrao
@@ -15,6 +13,9 @@ public class BorrarParti extends javax.swing.JDialog {
     User user;
     /**
      * Creates new form BorrarParti
+     * @param parent
+     * @param modal
+     * @param user
      */
     public BorrarParti(java.awt.Frame parent, boolean modal, User user) {
         super(parent, modal);

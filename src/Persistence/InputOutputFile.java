@@ -15,7 +15,7 @@ import java.io.*;
  */
 public class InputOutputFile {
 
-    public static void saveUser(User user) throws MiExcepcion{
+    public static void saveUser(User user) throws MiExcepcion {
         BufferedWriter bw = null;
         try {
             File userF = new File("usuarios.txt");
@@ -32,6 +32,47 @@ public class InputOutputFile {
                 }
             } catch (IOException ex) {
                 throw new MiExcepcion("Error al Guardar Usuario");
+            }
+        }
+    }
+
+    public static void deleteUser(User user) throws MiExcepcion {
+        BufferedWriter writer = null;
+        BufferedReader reader = null;
+        
+        String lineToRemove = user.toString();
+        String currentLine;
+
+        File userF = new File("usuarios.txt");
+        File tempFile = new File("myTempFile.txt");
+
+        try {
+
+            reader = new BufferedReader(new FileReader(userF));
+            writer = new BufferedWriter(new FileWriter(tempFile));
+
+            while ((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with lineToRemove
+                String trimmedLine = currentLine.trim();
+                if (trimmedLine.equals(lineToRemove)) {
+                    continue;
+                }
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+            boolean successful = tempFile.renameTo(userF);
+
+        } catch (IOException ix) {
+            throw new MiExcepcion("Fatal error: " + ix.getMessage());
+        } finally {
+            try {
+                if(writer != null && reader != null) {
+                    writer.close();
+                    reader.close();
+                }
+            } catch(IOException ex) {
+                throw new MiExcepcion("Fatal error: " + ex.getMessage());
             }
         }
     }

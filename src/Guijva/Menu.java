@@ -90,6 +90,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         buttonBorrarUser.setText("Borrar Usuario");
+        buttonBorrarUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBorrarUserActionPerformed(evt);
+            }
+        });
 
         buttonExit.setText("Log Out");
 
@@ -176,6 +181,12 @@ public class Menu extends javax.swing.JFrame {
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonAllPartiActionPerformed
+
+    private void buttonBorrarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBorrarUserActionPerformed
+        BorrarUser pestaa = new BorrarUser(null, true);
+        pestaa.setLocationRelativeTo(null);
+        pestaa.setVisible(true);
+    }//GEN-LAST:event_buttonBorrarUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -13,6 +13,8 @@ public class Modificar extends javax.swing.JDialog {
 
     /**
      * Creates new form ModificarPartitura
+     * @param parent
+     * @param modal
      */
     public Modificar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

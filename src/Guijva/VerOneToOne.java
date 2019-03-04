@@ -86,9 +86,7 @@ public class VerOneToOne extends javax.swing.JDialog {
         //todo: falta poner bonito
         String text = "";
         text += "<html><body> ";
-        for (Partituras partitura : App.partiturasUser) {
-            text += partitura.toString() + " <br> ";
-        }
+        text = App.partiturasUser.stream().map((partitura) -> partitura.toString() + " <br> ").reduce(text, String::concat);
         text += " </body></html> ";
         textPartituras.setText(text);
     }

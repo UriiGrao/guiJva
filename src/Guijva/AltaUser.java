@@ -19,6 +19,8 @@ public class AltaUser extends javax.swing.JDialog {
 
     /**
      * Creates new form AltaUser
+     * @param parent
+     * @param modal
      */
     public AltaUser(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -103,6 +105,7 @@ public class AltaUser extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Este userName ya esta en uso", "Error Nick", JOptionPane.ERROR_MESSAGE);
             } else {
                 User user = new User(userName, pass);
+                dispose();
                 App.users.put(userName, user);
                 try {
                     InputOutputFile.saveUser(user);

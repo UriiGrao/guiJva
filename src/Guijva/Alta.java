@@ -20,6 +20,9 @@ public class Alta extends javax.swing.JDialog {
 
     /**
      * Creates new form AltaPartitura
+     * @param parent
+     * @param modal
+     * @param user
      */
     public Alta(java.awt.Frame parent, boolean modal, User user) {
         super(parent, modal);

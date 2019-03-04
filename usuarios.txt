@@ -1,3 +1,4 @@
 admin admin
 mireis 1234
 orito 1234
+tester tester
