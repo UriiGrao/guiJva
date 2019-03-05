@@ -104,6 +104,7 @@ public class BorrarUser extends javax.swing.JDialog {
                 InputOutputFile.deleteUser(user);
                 App.users.remove(userName);
                 JOptionPane.showMessageDialog(this, "Usuario Borrado Correctamente");
+                dispose();
             }
 
         } catch (MiExcepcion mex) {

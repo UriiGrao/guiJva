@@ -55,7 +55,7 @@ public class User {
             throw new MiExcepcion("El codigo se repite!");
         }
     }
-    
+
     @Override
     public String toString() {
         String string = getUserName() + " " + getPassword();

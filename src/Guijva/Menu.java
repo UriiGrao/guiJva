@@ -13,9 +13,9 @@ import Models.*;
  * @author uriigrao
  */
 public class Menu extends javax.swing.JFrame {
-    
+
     User user;
-    
+
     /**
      * Creates new form Menu
      *

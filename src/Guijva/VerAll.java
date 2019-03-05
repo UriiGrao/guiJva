@@ -6,17 +6,20 @@
 package Guijva;
 
 import Models.*;
-import App.*;
+import java.util.*;
+import java.util.function.Function;
 
 /**
  *
  * @author uriigrao
  */
 public class VerAll extends javax.swing.JDialog {
-    
+
     User user;
+
     /**
      * Creates new form Ver
+     *
      * @param parent
      * @param modal
      * @param user
@@ -101,9 +104,11 @@ public class VerAll extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void verPartituras() {
+        
+
         String text = "";
         text += "<html><body> ";
-        text = App.partituras.stream().map((partitura) -> partitura.toString() + " <br> ").reduce(text, String::concat);
+        
         text += " </body></html> ";
         textPartituras.setText(text);
     }

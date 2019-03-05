@@ -11,6 +11,7 @@ package Guijva;
  */
 import Models.*;
 import App.*;
+import static Persistence.InputOutputFile.saveParti;
 import Utils.*;
 import javax.swing.*;
 
@@ -193,6 +194,7 @@ public class Alta extends javax.swing.JDialog {
             try {
                 user.putPartitura(code, partitura);
                 App.partituras.add(partitura);
+                saveParti(user, partitura);
                 JOptionPane.showMessageDialog(this, "Partitura Insertada Correctamente!");
                 this.dispose();
             } catch (MiExcepcion mx) {

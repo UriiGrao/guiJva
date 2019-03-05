@@ -10,6 +10,7 @@ package Models;
  * @author uriigrao
  */
 public class Partituras {
+
     private String codigo;
     private String title;
     private String artista;
@@ -18,7 +19,7 @@ public class Partituras {
     private String dificultad;
     private boolean impresa;
 
-    public Partituras(String codigo, String title, String artista, String instrumento, 
+    public Partituras(String codigo, String title, String artista, String instrumento,
             String genero, String dificultad, boolean impresa) {
         this.codigo = codigo;
         this.title = title;
@@ -84,12 +85,19 @@ public class Partituras {
     public void setImpresa(boolean impresa) {
         this.impresa = impresa;
     }
-    
+
     @Override
     public String toString() {
-        String string = getCodigo() + " - " + getTitle()+ " - " + getArtista() + " - " + getInstrumento() + 
-                " - " + getGenero() + " - " + getDificultad();
-        
+        String string;
+        if (impresa) {
+            string = getCodigo() + " " + getTitle() + " " + getArtista() + " "
+                    + getInstrumento() + " " + getGenero() + " "
+                    + getDificultad() + " true";
+        } else {
+            string = getCodigo() + " " + getTitle() + " " + getArtista() + " "
+                    + getInstrumento() + " " + getGenero() + " "
+                    + getDificultad() + " false";
+        }
         return string;
     }
 }
