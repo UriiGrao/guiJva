@@ -24,7 +24,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu(String nameUser) {
         initComponents();
         veriryAdmin(nameUser);
-        user = App.users.get(nameUser);
+        this.user = App.users.get(nameUser);
     }
 
     /**
@@ -152,7 +152,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAltaPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAltaPartiActionPerformed
-        Alta pestaa = new Alta(null, true, user);
+        Alta pestaa = new Alta(null, true, this.user);
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonAltaPartiActionPerformed
@@ -164,7 +164,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonModiPartiActionPerformed
 
     private void buttonBorrarPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBorrarPartiActionPerformed
-        BorrarParti pestaa = new BorrarParti(null, true, user);
+        BorrarParti pestaa = new BorrarParti(null, true, this.user);
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonBorrarPartiActionPerformed
@@ -176,13 +176,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDarAltaUserActionPerformed
 
     private void buttonVerPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVerPartiActionPerformed
-        VerOneToOne pestaa = new VerOneToOne(null, true, user);
+        VerOneToOne pestaa = new VerOneToOne(null, true, this.user);
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonVerPartiActionPerformed
 
     private void buttonAllPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllPartiActionPerformed
-        VerAll pestaa = new VerAll(null, true, user);
+        VerAll pestaa = new VerAll(null, true, this.user);
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonAllPartiActionPerformed

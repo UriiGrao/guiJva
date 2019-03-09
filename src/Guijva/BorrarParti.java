@@ -28,7 +28,7 @@ public class BorrarParti extends javax.swing.JDialog {
     public BorrarParti(java.awt.Frame parent, boolean modal, User user) {
         super(parent, modal);
         initComponents();
-        user = user;
+        this.user = user;
         verPartituras();
     }
 
@@ -48,6 +48,11 @@ public class BorrarParti extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         buttonDelete.setText("Borrar");
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
 
         bClose.setText("close");
         bClose.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +97,17 @@ public class BorrarParti extends javax.swing.JDialog {
     private void bCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCloseActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCloseActionPerformed
+
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        String codeNamePartitura = (String) deleteSelect.getSelectedItem();
+        String[] parti = codeNamePartitura.split(" ");
+        String codePartitura = parti[0];
+        String titlePartitura = parti[1];
+
+        user.deletePartitura(codePartitura);
+        JOptionPane.showMessageDialog(this, "Partitura Borrada Correctamente");
+        dispose();
+    }//GEN-LAST:event_buttonDeleteActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bClose;

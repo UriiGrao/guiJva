@@ -137,7 +137,7 @@ public class InputOutputFile {
             writer.close();
             reader.close();
             boolean successful = tempFile.renameTo(userF);
-            deletePartitura(user);
+            deletePartituraForUser(user);
 
         } catch (IOException ix) {
             throw new MiExcepcion("Fatal error: " + ix.getMessage());
@@ -153,7 +153,7 @@ public class InputOutputFile {
         }
     }
 
-    public static void deletePartitura(User user) throws MiExcepcion {
+    public static void deletePartituraForUser(User user) throws MiExcepcion {
         BufferedWriter writer = null;
         BufferedReader reader = null;
 
