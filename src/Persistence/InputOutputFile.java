@@ -169,8 +169,6 @@ public class InputOutputFile {
 
             while ((currentLine = reader.readLine()) != null) {
                 String[] line = currentLine.split(" ");
-                // trim newline when comparing with lineToRemove
-                String trimmedLine = currentLine.trim();
 
                 if (line[0].equals(lineToRemove)) {
                     continue;
@@ -193,5 +191,44 @@ public class InputOutputFile {
                 throw new MiExcepcion("Fatal error: " + ex.getMessage());
             }
         }
+    }
+
+    public static void deletePartitura(User user, String codePartitura) throws MiExcepcion {
+        BufferedWriter writer = null;
+        BufferedReader reader = null;
+
+        String lineToRemove = user.getUserName() + " " + codePartitura;
+        String currentLine;
+
+        File fPartis = new File("partis.txt");
+        File tempFile = new File("myTempFile.txt");
+        try {
+            reader = new BufferedReader(new FileReader(fPartis));
+            writer = new BufferedWriter(new FileWriter(tempFile));
+
+            while ((currentLine = reader.readLine()) != null) {
+                String[] line = currentLine.split(" ");
+
+                if (lineToRemove.equals(line[0] + " " + line[1])) {
+                    continue;
+                }
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+            boolean successful = tempFile.renameTo(fPartis);
+        } catch (IOException iox) {
+            throw new MiExcepcion("Fatal error: " + iox.getMessage());
+        } finally {
+            try {
+                if (writer != null && reader != null) {
+                    writer.close();
+                    reader.close();
+                }
+            } catch (IOException ex) {
+                throw new MiExcepcion("Fatal error: " + ex.getMessage());
+            }
+        }
+
     }
 }

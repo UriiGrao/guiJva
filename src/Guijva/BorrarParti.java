@@ -7,6 +7,8 @@ package Guijva;
 
 import App.*;
 import Models.*;
+import Persistence.InputOutputFile;
+import Utils.MiExcepcion;
 import java.util.*;
 import javax.swing.*;
 
@@ -104,8 +106,13 @@ public class BorrarParti extends javax.swing.JDialog {
         String codePartitura = parti[0];
         String titlePartitura = parti[1];
 
-        user.deletePartitura(codePartitura);
-        JOptionPane.showMessageDialog(this, "Partitura Borrada Correctamente");
+        try {
+            user.deletePartitura(codePartitura);
+            InputOutputFile.deletePartitura(user, codePartitura);
+            JOptionPane.showMessageDialog(this, "Partitura Borrada Correctamente");
+        } catch (MiExcepcion mx) {
+            JOptionPane.showMessageDialog(this, mx.getMessage());
+        }
         dispose();
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
