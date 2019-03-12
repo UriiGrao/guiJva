@@ -5,20 +5,33 @@
  */
 package Guijva;
 
+import App.Functions;
+import Models.*;
+import java.util.*;
+import javax.swing.*;
+import Persistence.InputOutputFile;
+import Utils.MiExcepcion;
+
 /**
  *
  * @author uriigrao
  */
 public class Modificar extends javax.swing.JDialog {
 
+    User user;
+
     /**
      * Creates new form ModificarPartitura
+     *
      * @param parent
      * @param modal
+     * @param user
      */
-    public Modificar(java.awt.Frame parent, boolean modal) {
+    public Modificar(java.awt.Frame parent, boolean modal, User user) {
         super(parent, modal);
         initComponents();
+        this.user = user;
+        verPartituras();
     }
 
     /**
@@ -30,34 +43,39 @@ public class Modificar extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox3 = new javax.swing.JComboBox<>();
+        boxInstru = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        textGenM = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        boxNivel = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
+        radioImpreso = new javax.swing.JRadioButton();
+        bUpdate = new javax.swing.JButton();
         buttonClose = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        deleteSelect = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "piano", "batería", "guitarra", "flauta", "bajo" }));
+        boxInstru.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "piano", "batería", "guitarra", "flauta", "bajo" }));
 
         jLabel8.setText("Instrumento");
 
         jLabel5.setText("Genero Musical");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil", "Normal", "Dificil" }));
+        boxNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Facil", "Normal", "Dificil" }));
 
         jLabel7.setText("nivel de dificultad ");
 
-        jRadioButton1.setText("Impreso?");
+        radioImpreso.setText("Impreso?");
 
-        jButton2.setText("Modificar");
+        bUpdate.setText("Modificar");
+        bUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bUpdateActionPerformed(evt);
+            }
+        });
 
         buttonClose.setText("Close");
         buttonClose.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +87,7 @@ public class Modificar extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel6.setText("MODIFICAR PARTITURA");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        deleteSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel9.setText("PARTITURA:");
 
@@ -80,21 +98,21 @@ public class Modificar extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
+                    .addComponent(bUpdate)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textGenM, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxInstru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton1)
+                            .addComponent(radioImpreso)
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(boxNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonClose)
                 .addGap(37, 37, 37))
@@ -106,7 +124,7 @@ public class Modificar extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(deleteSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(148, 148, 148))
         );
         layout.setVerticalGroup(
@@ -116,25 +134,25 @@ public class Modificar extends javax.swing.JDialog {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxInstru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textGenM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton1)
+                .addComponent(radioImpreso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(bUpdate)
                     .addComponent(buttonClose))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -146,20 +164,52 @@ public class Modificar extends javax.swing.JDialog {
         Modificar.this.dispose();
     }//GEN-LAST:event_buttonCloseActionPerformed
 
-   
+    private void bUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUpdateActionPerformed
+        String instrumento = (String) boxInstru.getSelectedItem();
+        String genMusical = textGenM.getText();
+        String nDificultat = (String) boxNivel.getSelectedItem();
+        boolean impreso = radioImpreso.isSelected();
+
+        String codeNamePartitura = (String) deleteSelect.getSelectedItem();
+        String[] parti = codeNamePartitura.split(" ");
+        String codePartitura = parti[0];
+
+        Map<String, Partituras> partiturasUser = this.user.getPartituras();
+        Partituras partitura = partiturasUser.get(codePartitura);
+
+        partitura.setInstrumento(instrumento);
+        partitura.setGenero(genMusical);
+        partitura.setDificultad(nDificultat);
+        partitura.setImpresa(impreso);
+
+        try {
+            InputOutputFile.deletePartitura(user, codePartitura);
+            InputOutputFile.saveParti(user, partitura);
+            JOptionPane.showMessageDialog(this, "Modificado Correctamente");
+            dispose();
+        } catch (MiExcepcion mx) {
+            JOptionPane.showMessageDialog(this, "Error algun Campo esta Vacio", "Error Modificar", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_bUpdateActionPerformed
+
+    private void verPartituras() {
+        ArrayList<String> listaPartis = Functions.getAllpartisName(user);
+        deleteSelect.setModel(new DefaultComboBoxModel(listaPartis.toArray()));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bUpdate;
+    private javax.swing.JComboBox<String> boxInstru;
+    private javax.swing.JComboBox<String> boxNivel;
     private javax.swing.JButton buttonClose;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> deleteSelect;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JRadioButton radioImpreso;
+    private javax.swing.JTextField textGenM;
     // End of variables declaration//GEN-END:variables
 }

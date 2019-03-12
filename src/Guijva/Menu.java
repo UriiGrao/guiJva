@@ -158,7 +158,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAltaPartiActionPerformed
 
     private void buttonModiPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModiPartiActionPerformed
-        Modificar pestaa = new Modificar(null, true);
+        Modificar pestaa = new Modificar(null, true, this.user);
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonModiPartiActionPerformed
