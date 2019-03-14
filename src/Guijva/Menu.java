@@ -40,7 +40,6 @@ public class Menu extends javax.swing.JFrame {
         buttonModiParti = new javax.swing.JButton();
         buttonBorrarParti = new javax.swing.JButton();
         buttonVerParti = new javax.swing.JButton();
-        buttonAllParti = new javax.swing.JButton();
         buttonDarAltaUser = new javax.swing.JButton();
         buttonBorrarUser = new javax.swing.JButton();
         buttonExit = new javax.swing.JButton();
@@ -75,13 +74,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        buttonAllParti.setText("Totales");
-        buttonAllParti.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAllPartiActionPerformed(evt);
-            }
-        });
-
         buttonDarAltaUser.setText("Dar Alta Usuario");
         buttonDarAltaUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +104,6 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(179, 179, 179)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(buttonAllParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonVerParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonBorrarParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonModiParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -135,12 +126,10 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(buttonModiParti)
                 .addGap(35, 35, 35)
                 .addComponent(buttonBorrarParti)
-                .addGap(35, 35, 35)
+                .addGap(45, 45, 45)
                 .addComponent(buttonVerParti)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonAllParti)
-                    .addComponent(buttonDarAltaUser))
+                .addGap(25, 25, 25)
+                .addComponent(buttonDarAltaUser)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonBorrarUser)
@@ -176,16 +165,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDarAltaUserActionPerformed
 
     private void buttonVerPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVerPartiActionPerformed
-        VerOneToOne pestaa = new VerOneToOne(null, true, this.user);
+        VerPartis pestaa = new VerPartis(null, true, this.user);
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonVerPartiActionPerformed
-
-    private void buttonAllPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllPartiActionPerformed
-        VerAll pestaa = new VerAll(null, true, this.user);
-        pestaa.setLocationRelativeTo(null);
-        pestaa.setVisible(true);
-    }//GEN-LAST:event_buttonAllPartiActionPerformed
 
     private void buttonBorrarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBorrarUserActionPerformed
         BorrarUser pestaa = new BorrarUser(null, true);
@@ -199,7 +182,6 @@ public class Menu extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAllParti;
     private javax.swing.JButton buttonAltaParti;
     private javax.swing.JButton buttonBorrarParti;
     private javax.swing.JButton buttonBorrarUser;

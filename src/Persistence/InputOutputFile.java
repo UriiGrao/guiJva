@@ -5,8 +5,6 @@
  */
 package Persistence;
 
-import App.App;
-import static App.App.fichero;
 import static App.App.users;
 import static App.App.partituras;
 import Models.*;
@@ -25,47 +23,48 @@ public class InputOutputFile {
 
         FileReader frU = null;
         FileReader frP = null;
-        if (usersF.exists() && partis.exists()) {
-            try {
-                frU = new FileReader(usersF);
-                frP = new FileReader(partis);
-                BufferedReader brU = new BufferedReader(frU);
-                BufferedReader brP = new BufferedReader(frP);
-                String line;
 
-                while ((line = brU.readLine()) != null) {
-                    String[] breakLine = line.split(" ");
-                    User user = new User(breakLine[0], breakLine[1]);
-                    users.put(breakLine[0], user);
-                }
-                while ((line = brP.readLine()) != null) {
-                    String[] breakLine = line.split(" ");
-                    boolean imp = Boolean.parseBoolean(breakLine[7]);
-                    Partituras partitura = new Partituras(breakLine[1], breakLine[2], breakLine[3],
-                            breakLine[4], breakLine[5], breakLine[6], imp);
-                    try {
-                        users.get(breakLine[0]).putPartitura(breakLine[1], partitura);
-                        partituras.add(partitura);
-                    } catch (MiExcepcion mx) {
-                        System.out.println(mx.getMessage());
-                    }
-                }
+        try {
 
-            } catch (IOException ioex) {
-                System.out.println("Error Al Leer: " + ioex.getMessage());
-            }
-        } else {
-            try {
-                if (!usersF.exists()) {
+            if (!usersF.exists()) {
+                try {
                     usersF.createNewFile();
+                    User user = new User("admin", "admin");
+                    App.App.users.put("admin", user);
+                    saveUser(user);
+                } catch (MiExcepcion ex) {
+
                 }
-                if (!partis.exists()) {
-                    partis.createNewFile();
-                }
-                fichero = true;
-            } catch (IOException ex) {
-                System.out.println("Error al Crear TXT: " + ex.getMessage());
             }
+            if (!partis.exists()) {
+                partis.createNewFile();
+            }
+
+            frU = new FileReader(usersF);
+            frP = new FileReader(partis);
+            BufferedReader brU = new BufferedReader(frU);
+            BufferedReader brP = new BufferedReader(frP);
+            String line;
+
+            while ((line = brU.readLine()) != null) {
+                String[] breakLine = line.split(" ");
+                User user = new User(breakLine[0], breakLine[1]);
+                users.put(breakLine[0], user);
+            }
+            while ((line = brP.readLine()) != null) {
+                String[] breakLine = line.split(" ");
+                boolean imp = Boolean.parseBoolean(breakLine[7]);
+                Partituras partitura = new Partituras(breakLine[1], breakLine[2], breakLine[3],
+                        breakLine[4], breakLine[5], breakLine[6], imp);
+                try {
+                    users.get(breakLine[0]).putPartitura(breakLine[1], partitura);
+                    partituras.add(partitura);
+                } catch (MiExcepcion mx) {
+                    System.out.println(mx.getMessage());
+                }
+            }
+        } catch (IOException ioex) {
+            System.out.println("Error Al Leer: " + ioex.getMessage());
         }
     }
 
