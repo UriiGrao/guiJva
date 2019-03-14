@@ -14,7 +14,7 @@ import java.util.*;
  * @author uriigrao
  */
 public class VerPartis extends javax.swing.JDialog {
-    
+
     ArrayList<Partituras> partis;
     int cont;
     User user;
@@ -31,6 +31,7 @@ public class VerPartis extends javax.swing.JDialog {
         initComponents();
         this.user = user;
         this.partis = new ArrayList<>();
+        this.bBack.setVisible(false);
         this.cont = 0;
     }
 
@@ -54,7 +55,6 @@ public class VerPartis extends javax.swing.JDialog {
         fDificultat = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         lTitle = new javax.swing.JLabel();
-        artista = new javax.swing.JLabel();
         textArtista = new javax.swing.JLabel();
         lTitle1 = new javax.swing.JLabel();
         lTitle2 = new javax.swing.JLabel();
@@ -100,7 +100,7 @@ public class VerPartis extends javax.swing.JDialog {
             }
         });
 
-        fIntrumentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Piano", "Guitarra", "Bajo", "Bateria", "Flauta" }));
+        fIntrumentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "piano", "guitarra", "bajo", "bateria", "flauta" }));
 
         fDificultat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Facil", "Medio", "Dificil" }));
 
@@ -148,49 +148,43 @@ public class VerPartis extends javax.swing.JDialog {
                 .addComponent(bNext)
                 .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(textArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(454, 454, 454))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lTitle5)
+                            .addComponent(lTitle7))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lTitle5)
-                                    .addComponent(lTitle7))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(41, 41, 41)
-                                        .addComponent(textImpreso, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addComponent(textDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lCode)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(textCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lTitle)
-                                    .addGap(62, 62, 62)
-                                    .addComponent(textTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(lTitle2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(artista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(lTitle3)
-                                    .addGap(41, 41, 41)
-                                    .addComponent(textGenero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(lTitle1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(textinstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(41, 41, 41)
+                                .addComponent(textImpreso, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(textDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lTitle2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lTitle3)
+                            .addGap(41, 41, 41)
+                            .addComponent(textGenero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(lTitle1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(textinstrumento, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lCode)
+                                .addComponent(lTitle))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(0, 182, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(lTitle6)
@@ -207,30 +201,22 @@ public class VerPartis extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fIntrumentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fDificultat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bFiltrado)
+                    .addComponent(lTitle6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lTitle4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fIntrumentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fDificultat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bFiltrado)
-                            .addComponent(lTitle6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lTitle4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(17, 17, 17)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(textArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(lCode, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(textCode, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lCode, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textCode, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,7 +225,7 @@ public class VerPartis extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(textTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(artista, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -278,9 +264,11 @@ public class VerPartis extends javax.swing.JDialog {
     }//GEN-LAST:event_bCloseActionPerformed
 
     private void bFiltradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltradoActionPerformed
+        this.cont = 0;
         String instrumentoFilter = (String) fIntrumentos.getSelectedItem();
         String nivelFilter = (String) fDificultat.getSelectedItem();
-        
+        System.out.println(nivelFilter);
+        System.out.println(instrumentoFilter);
         if (instrumentoFilter.equals("None") && nivelFilter.equals("None")) {
             this.partis = partituras;
         } else if (instrumentoFilter.equals("None") && !nivelFilter.equals("None")) {
@@ -294,11 +282,12 @@ public class VerPartis extends javax.swing.JDialog {
     }//GEN-LAST:event_bFiltradoActionPerformed
 
     private void bNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNextActionPerformed
-        if (cont == this.partis.size()) {
+        if (this.cont == this.partis.size()) {
             this.bNext.setVisible(false);
         } else {
-            this.cont++;
             this.bBack.setVisible(true);
+            this.cont++;
+            verPartituras();
         }
     }//GEN-LAST:event_bNextActionPerformed
 
@@ -312,11 +301,11 @@ public class VerPartis extends javax.swing.JDialog {
         } else {
             this.cont--;
             this.bNext.setVisible(true);
+            verPartituras();
         }
     }//GEN-LAST:event_bBackActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel artista;
     private javax.swing.JButton bBack;
     private javax.swing.JButton bClose;
     private javax.swing.JButton bClose2;
@@ -347,9 +336,19 @@ public class VerPartis extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void verPartituras() {
-        
+        textCode.setText(partis.get(this.cont).getCodigo());
+        textTitle.setText(partis.get(this.cont).getTitle());
+        textArtista.setText(partis.get(this.cont).getArtista());
+        textinstrumento.setText(partis.get(this.cont).getInstrumento());
+        textGenero.setText(partis.get(this.cont).getGenero());
+        textDificultad.setText(partis.get(this.cont).getDificultad());
+        if (partis.get(this.cont).isImpresa()) {
+            textImpreso.setText("True");
+        } else {
+            textImpreso.setText("False");
+        }
     }
-    
+
     private void caseOfLevel(String level) {
         for (Partituras partitura : partituras) {
             if (partitura.getDificultad().equals(level)) {
@@ -357,7 +356,7 @@ public class VerPartis extends javax.swing.JDialog {
             }
         }
     }
-    
+
     private void caseOfInstrument(String instrument) {
         for (Partituras partitura : partituras) {
             if (partitura.getInstrumento().equals(instrument)) {
@@ -365,7 +364,7 @@ public class VerPartis extends javax.swing.JDialog {
             }
         }
     }
-    
+
     private void caseAll(String instrument, String level) {
         for (Partituras partitura : partituras) {
             if (partitura.getInstrumento().equals(instrument) && partitura.getDificultad().equals(level)) {
