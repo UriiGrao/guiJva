@@ -28,7 +28,6 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="buttonAllParti" max="32767" attributes="0"/>
                           <Component id="buttonVerParti" max="32767" attributes="0"/>
                           <Component id="buttonBorrarParti" max="32767" attributes="0"/>
                           <Component id="buttonModiParti" max="32767" attributes="0"/>
@@ -58,13 +57,10 @@
               <Component id="buttonModiParti" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="buttonBorrarParti" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Component id="buttonVerParti" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonAllParti" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonDarAltaUser" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="buttonDarAltaUser" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonBorrarUser" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -106,14 +102,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonVerPartiActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonAllParti">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Totales"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAllPartiActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonDarAltaUser">

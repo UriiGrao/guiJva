@@ -2,7 +2,7 @@ package App;
 
 import static App.App.*;
 import Models.*;
-import java.util.ArrayList;
+import java.util.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,10 +31,13 @@ public class Functions {
 
     public static ArrayList<String> getAllpartisName(User user) {
         ArrayList<String> lista = new ArrayList<>();
-        
-        
-        partituras.stream().forEach((partitura) -> {
-            lista.add(partitura.getCodigo() + " - " + partitura.getTitle());
+        ArrayList<Partituras> partis = new ArrayList<>();
+
+        if (user.getPartituras().size() > 0) {
+            user.getPartituras().forEach((k, v) -> partis.add(v));
+        }
+        partis.stream().forEach((part) -> {
+            lista.add(part.getCodigo() + " " + part.getArtista());
         });
         return lista;
     }

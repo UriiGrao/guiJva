@@ -88,15 +88,14 @@ public class Partituras {
 
     @Override
     public String toString() {
-        String string;
+        String string = getCodigo() + " " + getTitle() + " " + getArtista() + " "
+                    + getInstrumento() + " " + getGenero() + " "
+                    + getDificultad();
+        
         if (impresa) {
-            string = getCodigo() + " " + getTitle() + " " + getArtista() + " "
-                    + getInstrumento() + " " + getGenero() + " "
-                    + getDificultad() + " true";
+            string += " true";
         } else {
-            string = getCodigo() + " " + getTitle() + " " + getArtista() + " "
-                    + getInstrumento() + " " + getGenero() + " "
-                    + getDificultad() + " false";
+           string += " false";
         }
         return string;
     }

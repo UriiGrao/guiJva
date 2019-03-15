@@ -5,8 +5,6 @@
  */
 package Persistence;
 
-import App.App;
-import static App.App.fichero;
 import static App.App.users;
 import static App.App.partituras;
 import Models.*;
@@ -25,47 +23,48 @@ public class InputOutputFile {
 
         FileReader frU = null;
         FileReader frP = null;
-        if (usersF.exists() && partis.exists()) {
-            try {
-                frU = new FileReader(usersF);
-                frP = new FileReader(partis);
-                BufferedReader brU = new BufferedReader(frU);
-                BufferedReader brP = new BufferedReader(frP);
-                String line;
 
-                while ((line = brU.readLine()) != null) {
-                    String[] breakLine = line.split(" ");
-                    User user = new User(breakLine[0], breakLine[1]);
-                    users.put(breakLine[0], user);
-                }
-                while ((line = brP.readLine()) != null) {
-                    String[] breakLine = line.split(" ");
-                    boolean imp = Boolean.parseBoolean(breakLine[7]);
-                    Partituras partitura = new Partituras(breakLine[1], breakLine[2], breakLine[3],
-                            breakLine[4], breakLine[5], breakLine[6], imp);
-                    try {
-                        users.get(breakLine[0]).putPartitura(breakLine[1], partitura);
-                        partituras.add(partitura);
-                    } catch (MiExcepcion mx) {
-                        System.out.println(mx.getMessage());
-                    }
-                }
+        try {
 
-            } catch (IOException ioex) {
-                System.out.println("Error Al Leer: " + ioex.getMessage());
-            }
-        } else {
-            try {
-                if (!usersF.exists()) {
+            if (!usersF.exists()) {
+                try {
                     usersF.createNewFile();
+                    User user = new User("admin", "admin");
+                    App.App.users.put("admin", user);
+                    saveUser(user);
+                } catch (MiExcepcion ex) {
+
                 }
-                if (!partis.exists()) {
-                    partis.createNewFile();
-                }
-                fichero = true;
-            } catch (IOException ex) {
-                System.out.println("Error al Crear TXT: " + ex.getMessage());
             }
+            if (!partis.exists()) {
+                partis.createNewFile();
+            }
+
+            frU = new FileReader(usersF);
+            frP = new FileReader(partis);
+            BufferedReader brU = new BufferedReader(frU);
+            BufferedReader brP = new BufferedReader(frP);
+            String line;
+
+            while ((line = brU.readLine()) != null) {
+                String[] breakLine = line.split(" ");
+                User user = new User(breakLine[0], breakLine[1]);
+                users.put(breakLine[0], user);
+            }
+            while ((line = brP.readLine()) != null) {
+                String[] breakLine = line.split(" ");
+                boolean imp = Boolean.parseBoolean(breakLine[7]);
+                Partituras partitura = new Partituras(breakLine[1], breakLine[2], breakLine[3],
+                        breakLine[4], breakLine[5], breakLine[6], imp);
+                try {
+                    users.get(breakLine[0]).putPartitura(breakLine[1], partitura);
+                    partituras.add(partitura);
+                } catch (MiExcepcion mx) {
+                    System.out.println(mx.getMessage());
+                }
+            }
+        } catch (IOException ioex) {
+            System.out.println("Error Al Leer: " + ioex.getMessage());
         }
     }
 
@@ -137,7 +136,7 @@ public class InputOutputFile {
             writer.close();
             reader.close();
             boolean successful = tempFile.renameTo(userF);
-            deletePartitura(user);
+            deletePartituraForUser(user);
 
         } catch (IOException ix) {
             throw new MiExcepcion("Fatal error: " + ix.getMessage());
@@ -153,7 +152,7 @@ public class InputOutputFile {
         }
     }
 
-    public static void deletePartitura(User user) throws MiExcepcion {
+    public static void deletePartituraForUser(User user) throws MiExcepcion {
         BufferedWriter writer = null;
         BufferedReader reader = null;
 
@@ -169,8 +168,6 @@ public class InputOutputFile {
 
             while ((currentLine = reader.readLine()) != null) {
                 String[] line = currentLine.split(" ");
-                // trim newline when comparing with lineToRemove
-                String trimmedLine = currentLine.trim();
 
                 if (line[0].equals(lineToRemove)) {
                     continue;
@@ -193,5 +190,44 @@ public class InputOutputFile {
                 throw new MiExcepcion("Fatal error: " + ex.getMessage());
             }
         }
+    }
+
+    public static void deletePartitura(User user, String codePartitura) throws MiExcepcion {
+        BufferedWriter writer = null;
+        BufferedReader reader = null;
+
+        String lineToRemove = user.getUserName() + " " + codePartitura;
+        String currentLine;
+
+        File fPartis = new File("partis.txt");
+        File tempFile = new File("myTempFile.txt");
+        try {
+            reader = new BufferedReader(new FileReader(fPartis));
+            writer = new BufferedWriter(new FileWriter(tempFile));
+
+            while ((currentLine = reader.readLine()) != null) {
+                String[] line = currentLine.split(" ");
+
+                if (lineToRemove.equals(line[0] + " " + line[1])) {
+                    continue;
+                }
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close();
+            reader.close();
+            boolean successful = tempFile.renameTo(fPartis);
+        } catch (IOException iox) {
+            throw new MiExcepcion("Fatal error: " + iox.getMessage());
+        } finally {
+            try {
+                if (writer != null && reader != null) {
+                    writer.close();
+                    reader.close();
+                }
+            } catch (IOException ex) {
+                throw new MiExcepcion("Fatal error: " + ex.getMessage());
+            }
+        }
+
     }
 }

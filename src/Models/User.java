@@ -56,6 +56,10 @@ public class User {
         }
     }
 
+    public void deletePartitura(String codeParti) {
+        partituras.remove(codeParti);
+    }
+
     @Override
     public String toString() {
         String string = getUserName() + " " + getPassword();
