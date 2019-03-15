@@ -67,7 +67,7 @@ public class Alta extends javax.swing.JDialog {
 
         jLabel4.setText("Instrumento");
 
-        boxInstru.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "piano", "batería", "guitarra", "flauta", "bajo" }));
+        boxInstru.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "piano", "bateria", "guitarra", "flauta", "bajo" }));
 
         jLabel5.setText("Genero Musical");
 

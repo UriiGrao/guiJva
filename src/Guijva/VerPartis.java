@@ -8,6 +8,7 @@ package Guijva;
 import Models.*;
 import static App.App.partituras;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,8 +31,9 @@ public class VerPartis extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.user = user;
-        this.partis = new ArrayList<>();
         this.bBack.setVisible(false);
+        this.bNext.setVisible(false);
+        noVerPartituras();
         this.cont = 0;
     }
 
@@ -184,7 +186,7 @@ public class VerPartis extends javax.swing.JDialog {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(textTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(textCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(0, 182, Short.MAX_VALUE))
+                .addGap(0, 44, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(lTitle6)
@@ -265,10 +267,10 @@ public class VerPartis extends javax.swing.JDialog {
 
     private void bFiltradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltradoActionPerformed
         this.cont = 0;
+        bNext.setVisible(true);
         String instrumentoFilter = (String) fIntrumentos.getSelectedItem();
         String nivelFilter = (String) fDificultat.getSelectedItem();
-        System.out.println(nivelFilter);
-        System.out.println(instrumentoFilter);
+        this.partis = new ArrayList<>();
         if (instrumentoFilter.equals("None") && nivelFilter.equals("None")) {
             this.partis = partituras;
         } else if (instrumentoFilter.equals("None") && !nivelFilter.equals("None")) {
@@ -278,31 +280,29 @@ public class VerPartis extends javax.swing.JDialog {
         } else {
             caseAll(instrumentoFilter, nivelFilter);
         }
-        verPartituras();
+        if (this.partis.size() > 0) {
+            verPartituras();
+        } else {
+            JOptionPane.showMessageDialog(this, "No Hay Partituras");
+            noVerPartituras();
+            //todo: Poner los filtros a NONE!!
+        }
     }//GEN-LAST:event_bFiltradoActionPerformed
 
     private void bNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNextActionPerformed
-        if (this.cont == this.partis.size()) {
-            this.bNext.setVisible(false);
-        } else {
-            this.bBack.setVisible(true);
-            this.cont++;
-            verPartituras();
-        }
+        this.cont++;
+        verPartituras();
+        bBack.setVisible(true);
     }//GEN-LAST:event_bNextActionPerformed
 
     private void bClose2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClose2ActionPerformed
-        // TODO add your handling code here:
+        VerPartis.this.dispose();
     }//GEN-LAST:event_bClose2ActionPerformed
 
     private void bBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBackActionPerformed
-        if (cont == 0) {
-            this.bBack.setVisible(false);
-        } else {
-            this.cont--;
-            this.bNext.setVisible(true);
-            verPartituras();
-        }
+        this.cont--;
+        verPartituras();
+        bNext.setVisible(true);
     }//GEN-LAST:event_bBackActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -335,20 +335,6 @@ public class VerPartis extends javax.swing.JDialog {
     private javax.swing.JLabel textinstrumento;
     // End of variables declaration//GEN-END:variables
 
-    private void verPartituras() {
-        textCode.setText(partis.get(this.cont).getCodigo());
-        textTitle.setText(partis.get(this.cont).getTitle());
-        textArtista.setText(partis.get(this.cont).getArtista());
-        textinstrumento.setText(partis.get(this.cont).getInstrumento());
-        textGenero.setText(partis.get(this.cont).getGenero());
-        textDificultad.setText(partis.get(this.cont).getDificultad());
-        if (partis.get(this.cont).isImpresa()) {
-            textImpreso.setText("True");
-        } else {
-            textImpreso.setText("False");
-        }
-    }
-
     private void caseOfLevel(String level) {
         for (Partituras partitura : partituras) {
             if (partitura.getDificultad().equals(level)) {
@@ -371,5 +357,39 @@ public class VerPartis extends javax.swing.JDialog {
                 this.partis.add(partitura);
             }
         }
+    }
+
+    private void verPartituras() {
+        if(this.cont == this.partis.size() -1){
+            bNext.setVisible(false);
+        }
+        if(this.cont == 0) {
+            bBack.setVisible(false);
+        }
+        
+        textCode.setText(partis.get(this.cont).getCodigo());
+        textTitle.setText(partis.get(this.cont).getTitle());
+        textArtista.setText(partis.get(this.cont).getArtista());
+        textinstrumento.setText(partis.get(this.cont).getInstrumento());
+        textGenero.setText(partis.get(this.cont).getGenero());
+        textDificultad.setText(partis.get(this.cont).getDificultad());
+        if (partis.get(this.cont).isImpresa()) {
+            textImpreso.setText("True");
+        } else {
+            textImpreso.setText("False");
+        }
+    }
+
+    private void noVerPartituras() {
+        bBack.setVisible(false);
+        bNext.setVisible(false);
+        
+        textCode.setText("-");
+        textTitle.setText("-");
+        textArtista.setText("-");
+        textinstrumento.setText("-");
+        textGenero.setText("-");
+        textDificultad.setText("-");
+        textImpreso.setText("-");
     }
 }
