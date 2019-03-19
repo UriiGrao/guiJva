@@ -43,6 +43,7 @@ public class Menu extends javax.swing.JFrame {
         buttonDarAltaUser = new javax.swing.JButton();
         buttonBorrarUser = new javax.swing.JButton();
         buttonExit = new javax.swing.JButton();
+        totales = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,6 +96,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        totales.setText("Totales");
+        totales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,7 +115,8 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(buttonVerParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonBorrarParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(buttonModiParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonAltaParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(buttonAltaParti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(totales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(buttonExit)))
@@ -126,10 +135,15 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(buttonModiParti)
                 .addGap(35, 35, 35)
                 .addComponent(buttonBorrarParti)
-                .addGap(45, 45, 45)
-                .addComponent(buttonVerParti)
-                .addGap(25, 25, 25)
-                .addComponent(buttonDarAltaUser)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(buttonDarAltaUser))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(totales)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonVerParti)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonBorrarUser)
@@ -180,6 +194,12 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_buttonExitActionPerformed
 
+    private void totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalesActionPerformed
+        Totales pestaa = new Totales(null, true);
+        pestaa.setLocationRelativeTo(null);
+        pestaa.setVisible(true);
+    }//GEN-LAST:event_totalesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAltaParti;
@@ -189,6 +209,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonModiParti;
     private javax.swing.JButton buttonVerParti;
+    private javax.swing.JButton totales;
     // End of variables declaration//GEN-END:variables
 
     private void veriryAdmin(String nameUser) {
