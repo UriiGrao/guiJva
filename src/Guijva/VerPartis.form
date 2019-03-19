@@ -240,7 +240,7 @@
           <StringArray count="4">
             <StringItem index="0" value="None"/>
             <StringItem index="1" value="Facil"/>
-            <StringItem index="2" value="Medio"/>
+            <StringItem index="2" value="Normal"/>
             <StringItem index="3" value="Dificil"/>
           </StringArray>
         </Property>

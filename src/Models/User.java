@@ -50,14 +50,14 @@ public class User {
 
     public void putPartitura(String code, Partituras partitura) throws MiExcepcion {
         if (!this.partituras.containsKey(code)) {
-            partituras.put(code, partitura);
+            this.partituras.put(code, partitura);
         } else {
             throw new MiExcepcion("El codigo se repite!");
         }
     }
 
     public void deletePartitura(String codeParti) {
-        partituras.remove(codeParti);
+        this.partituras.remove(codeParti);
     }
 
     @Override

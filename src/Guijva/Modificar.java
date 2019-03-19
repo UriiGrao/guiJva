@@ -19,6 +19,7 @@ import Utils.MiExcepcion;
 public class Modificar extends javax.swing.JDialog {
 
     User user;
+    boolean isSelected;
 
     /**
      * Creates new form ModificarPartitura
@@ -32,6 +33,7 @@ public class Modificar extends javax.swing.JDialog {
         initComponents();
         this.user = user;
         verPartituras();
+        isSelected = false;
     }
 
     /**
@@ -55,6 +57,8 @@ public class Modificar extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         deleteSelect = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        selectedPartitura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -91,6 +95,13 @@ public class Modificar extends javax.swing.JDialog {
 
         jLabel9.setText("PARTITURA:");
 
+        selectedPartitura.setText("Select");
+        selectedPartitura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectedPartituraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,7 +136,10 @@ public class Modificar extends javax.swing.JDialog {
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
                 .addComponent(deleteSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(148, 148, 148))
+                .addGap(18, 18, 18)
+                .addComponent(selectedPartitura)
+                .addGap(40, 40, 40))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,8 +149,11 @@ public class Modificar extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(30, 30, 30)
+                    .addComponent(jLabel9)
+                    .addComponent(selectedPartitura))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boxInstru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
@@ -154,7 +171,7 @@ public class Modificar extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bUpdate)
                     .addComponent(buttonClose))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -193,6 +210,10 @@ public class Modificar extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_bUpdateActionPerformed
 
+    private void selectedPartituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectedPartituraActionPerformed
+        isSelected = true;
+    }//GEN-LAST:event_selectedPartituraActionPerformed
+
     private void verPartituras() {
         ArrayList<String> listaPartis = Functions.getAllpartisName(user);
         deleteSelect.setModel(new DefaultComboBoxModel(listaPartis.toArray()));
@@ -209,7 +230,9 @@ public class Modificar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JRadioButton radioImpreso;
+    private javax.swing.JButton selectedPartitura;
     private javax.swing.JTextField textGenM;
     // End of variables declaration//GEN-END:variables
 }

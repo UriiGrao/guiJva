@@ -5,8 +5,8 @@
  */
 package Guijva;
 
-import Models.*;
 import static App.App.partituras;
+import Models.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 
@@ -104,7 +104,7 @@ public class VerPartis extends javax.swing.JDialog {
 
         fIntrumentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "piano", "guitarra", "bajo", "bateria", "flauta" }));
 
-        fDificultat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Facil", "Medio", "Dificil" }));
+        fDificultat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Facil", "Normal", "Dificil" }));
 
         lTitle.setText("Title:");
 
@@ -360,13 +360,13 @@ public class VerPartis extends javax.swing.JDialog {
     }
 
     private void verPartituras() {
-        if(this.cont == this.partis.size() -1){
+        if (this.cont == this.partis.size() - 1) {
             bNext.setVisible(false);
         }
-        if(this.cont == 0) {
+        if (this.cont == 0) {
             bBack.setVisible(false);
         }
-        
+
         textCode.setText(partis.get(this.cont).getCodigo());
         textTitle.setText(partis.get(this.cont).getTitle());
         textArtista.setText(partis.get(this.cont).getArtista());
@@ -383,7 +383,7 @@ public class VerPartis extends javax.swing.JDialog {
     private void noVerPartituras() {
         bBack.setVisible(false);
         bNext.setVisible(false);
-        
+
         textCode.setText("-");
         textTitle.setText("-");
         textArtista.setText("-");

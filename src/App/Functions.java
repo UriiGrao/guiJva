@@ -16,17 +16,9 @@ import java.util.*;
 public class Functions {
 
     public static ArrayList<String> getAllUsersNames() {
-        ArrayList<String> lista = new ArrayList<>();
-
-        users.forEach((k, v) -> lista.add(k));
-
-        // para no poder borrar admin.
-        for (int i = 0; lista.size() >= i; i++) {
-            if (lista.get(i).equals("admin")) {
-                lista.remove(i);
-            }
-        }
-        return lista;
+        ArrayList<String> usernames = new ArrayList<>(users.keySet());
+        usernames.remove("admin");
+        return usernames;
     }
 
     public static ArrayList<String> getAllpartisName(User user) {
