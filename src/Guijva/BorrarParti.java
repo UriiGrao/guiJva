@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guijva;
 
 import App.*;
@@ -95,11 +90,19 @@ public class BorrarParti extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Funcion de cerrar pestaña.
+     *
+     * @param evt
+     */
     private void bCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCloseActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCloseActionPerformed
-
+    /**
+     * Boton que sirve para borrar la parti selecionada por el select.
+     *
+     * @param evt
+     */
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
         String codeNamePartitura = (String) deleteSelect.getSelectedItem();
         String[] parti = codeNamePartitura.split(" ");
@@ -121,7 +124,9 @@ public class BorrarParti extends javax.swing.JDialog {
     private javax.swing.JButton buttonDelete;
     private javax.swing.JComboBox<String> deleteSelect;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Cuando entra por primera vez muestra todas las partituras del usuario.
+     */
     private void verPartituras() {
         ArrayList<String> listaPartis = Functions.getAllpartisName(user);
         deleteSelect.setModel(new DefaultComboBoxModel(listaPartis.toArray()));

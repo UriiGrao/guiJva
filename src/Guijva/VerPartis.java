@@ -264,7 +264,12 @@ public class VerPartis extends javax.swing.JDialog {
     private void bCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCloseActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCloseActionPerformed
-
+    /**
+     * function que revisa que filtros has puesto y llama a funcioens de mirar
+     * que partituras hay. Si no hay partituras muestra un mensaje de error.
+     *
+     * @param evt
+     */
     private void bFiltradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFiltradoActionPerformed
         this.cont = 0;
         bNext.setVisible(true);
@@ -288,7 +293,11 @@ public class VerPartis extends javax.swing.JDialog {
             //todo: Poner los filtros a NONE!!
         }
     }//GEN-LAST:event_bFiltradoActionPerformed
-
+    /**
+     * boton next el cual el contador amplia y vuelve visible el boton back.
+     *
+     * @param evt
+     */
     private void bNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNextActionPerformed
         this.cont++;
         verPartituras();
@@ -298,7 +307,11 @@ public class VerPartis extends javax.swing.JDialog {
     private void bClose2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClose2ActionPerformed
         VerPartis.this.dispose();
     }//GEN-LAST:event_bClose2ActionPerformed
-
+    /**
+     * boton de back el cual el contador resta y vuelve visible el boton next.
+     *
+     * @param evt
+     */
     private void bBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBackActionPerformed
         this.cont--;
         verPartituras();
@@ -334,7 +347,11 @@ public class VerPartis extends javax.swing.JDialog {
     private javax.swing.JLabel textTitle;
     private javax.swing.JLabel textinstrumento;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * for para mirar el caso de nivel.
+     *
+     * @param level
+     */
     private void caseOfLevel(String level) {
         for (Partituras partitura : partituras) {
             if (partitura.getDificultad().equals(level)) {
@@ -343,6 +360,11 @@ public class VerPartis extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * for para mirar el caso de instrumento.
+     *
+     * @param instrument
+     */
     private void caseOfInstrument(String instrument) {
         for (Partituras partitura : partituras) {
             if (partitura.getInstrumento().equals(instrument)) {
@@ -351,6 +373,12 @@ public class VerPartis extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * caso que tenga dos filtros.
+     *
+     * @param instrument
+     * @param level
+     */
     private void caseAll(String instrument, String level) {
         for (Partituras partitura : partituras) {
             if (partitura.getInstrumento().equals(instrument) && partitura.getDificultad().equals(level)) {
@@ -359,6 +387,9 @@ public class VerPartis extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * funcion que llamamos para ver las partituras miramos el contador.
+     */
     private void verPartituras() {
         if (this.cont == this.partis.size() - 1) {
             bNext.setVisible(false);
@@ -380,6 +411,9 @@ public class VerPartis extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * cuando no tenemos partituras se muestra sin nada.
+     */
     private void noVerPartituras() {
         bBack.setVisible(false);
         bNext.setVisible(false);

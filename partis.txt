@@ -1,4 +1,2 @@
-tester 465 mozaa mozart bateria pop Facil false
-tester 123 luis luis piano kuis Facil false
-tester 789 mireis mireis piano mireis Facil true
-admin 989 yul yul flauta yuil Dificil false
+admin 890 luis luis piano pop Facil false
+admin 889 miresi miresi piano rock Normal false

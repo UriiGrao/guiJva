@@ -20,15 +20,8 @@ public class Login extends javax.swing.JDialog {
      * @param modal
      */
     public Login(java.awt.Frame parent, boolean modal) {
-
         super(parent, modal);
         initComponents();
-
-        if (App.fichero) {
-            resposValid.setForeground(Color.red);
-            resposValid.setText("Reinicia App Para importar Datos Fichero");
-        }
-
     }
 
     /**
@@ -99,7 +92,13 @@ public class Login extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * Boton de Menu
+     * Cuando clicamos tendra que mirar si hemos escrito bien el usuario y 
+     * la password. Si esta mal mostrara el mensaje en rojo del else.
+     * @param evt 
+     */
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         boolean userVerify = userVerify(userForm.getText(), passForm.getText());
         if (userVerify == false) {
@@ -122,7 +121,13 @@ public class Login extends javax.swing.JDialog {
     private javax.swing.JLabel resposValid;
     private javax.swing.JTextField userForm;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Funcion de verificar usuario el cual pasamos lo que escriba el usuario
+     * y confirmamos sus datos.
+     * @param userForm String del nombre usuario
+     * @param passForm String de la contraseña usuario.
+     * @return true o false dependiendo del login si esta bien o no.
+     */
     private boolean userVerify(String userForm, String passForm) {
         boolean result = App.users.containsKey(userForm);
         if (result) {

@@ -41,10 +41,10 @@
                           <Component id="textTitle" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="textArtista" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="boxInstru" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="textGenM" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="boxNivel" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="boxGen" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="98" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="radioImpreso" min="-2" max="-2" attributes="0"/>
@@ -91,7 +91,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textGenM" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="boxGen" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -105,7 +105,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="buttonClose" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonDarAlta" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -173,8 +173,6 @@
         <Property name="text" type="java.lang.String" value="ALTA DE PARTITURA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="textGenM">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="nivel de dificultad "/>
@@ -214,6 +212,20 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="altaPartitura"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="boxGen">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="pop"/>
+            <StringItem index="1" value="rock"/>
+            <StringItem index="2" value="jazz"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

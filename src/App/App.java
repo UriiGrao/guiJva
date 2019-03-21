@@ -11,12 +11,12 @@ import Models.*;
 import static Persistence.InputOutputFile.leerFicheros;
 
 /**
- *
+ * Main de la App desde aqui se generan el HashMap de usuarios.
+ * leemos ficheros y generamos el login.
  * @author uriigrao
  */
 public class App {
 
-    public static boolean fichero = false;
     public static Map<String, User> users = new HashMap<>();
     public static ArrayList<Partituras> partituras = new ArrayList<>();
 

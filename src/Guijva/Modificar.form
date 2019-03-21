@@ -34,9 +34,10 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textGenM" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="boxInstru" min="-2" max="-2" attributes="0"/>
+                          <Component id="boxGen" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -89,7 +90,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textGenM" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="boxGen" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -103,7 +104,7 @@
                   <Component id="bUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonClose" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -129,8 +130,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Instrumento"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="textGenM">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -214,6 +213,20 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectedPartituraActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="boxGen">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="rock"/>
+            <StringItem index="1" value="pop"/>
+            <StringItem index="2" value="jazz"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

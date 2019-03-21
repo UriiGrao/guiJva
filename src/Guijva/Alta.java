@@ -1,26 +1,23 @@
 package Guijva;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author uriigrao
- */
 import Models.*;
 import App.*;
 import static Persistence.InputOutputFile.saveParti;
 import Utils.*;
 import javax.swing.*;
 
+/**
+ * El JDialog de Alta Partitura.
+ *
+ * @author uriigrao
+ */
 public class Alta extends javax.swing.JDialog {
 
     User user;
 
     /**
      * Creates new form AltaPartitura
+     *
      * @param parent
      * @param modal
      * @param user
@@ -50,12 +47,12 @@ public class Alta extends javax.swing.JDialog {
         boxInstru = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        textGenM = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         boxNivel = new javax.swing.JComboBox<>();
         radioImpreso = new javax.swing.JRadioButton();
         buttonClose = new javax.swing.JButton();
         buttonDarAlta = new javax.swing.JButton();
+        boxGen = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -94,6 +91,8 @@ public class Alta extends javax.swing.JDialog {
             }
         });
 
+        boxGen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "pop", "rock", "jazz" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,9 +114,9 @@ public class Alta extends javax.swing.JDialog {
                             .addComponent(textTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(boxInstru, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textGenM, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boxNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 98, Short.MAX_VALUE))
+                            .addComponent(boxNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxGen, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(radioImpreso)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -154,7 +153,7 @@ public class Alta extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(textGenM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxGen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -165,7 +164,7 @@ public class Alta extends javax.swing.JDialog {
                         .addComponent(radioImpreso)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(buttonClose)
                             .addComponent(buttonDarAlta))
@@ -178,13 +177,18 @@ public class Alta extends javax.swing.JDialog {
     private void closeWindow(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeWindow
         this.dispose();
     }//GEN-LAST:event_closeWindow
-
+    /**
+     * Boton de crear partitura aqui miramos todos los datos si estan llenos y
+     * miramos si la partitura se inserta o no. Si no damos un error.
+     *
+     * @param evt
+     */
     private void altaPartitura(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altaPartitura
         String code = textCode.getText();
         String title = textTitle.getText();
         String artista = textArtista.getText();
         String instrumento = (String) boxInstru.getSelectedItem();
-        String genMusical = textGenM.getText();
+        String genMusical = (String) boxGen.getSelectedItem();
         String nDificultat = (String) boxNivel.getSelectedItem();
         boolean impreso = radioImpreso.isSelected();
 
@@ -207,6 +211,7 @@ public class Alta extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> boxGen;
     private javax.swing.JComboBox<String> boxInstru;
     private javax.swing.JComboBox<String> boxNivel;
     private javax.swing.JButton buttonClose;
@@ -221,7 +226,6 @@ public class Alta extends javax.swing.JDialog {
     private javax.swing.JRadioButton radioImpreso;
     private javax.swing.JTextField textArtista;
     private javax.swing.JTextField textCode;
-    private javax.swing.JTextField textGenM;
     private javax.swing.JTextField textTitle;
     // End of variables declaration//GEN-END:variables
 }

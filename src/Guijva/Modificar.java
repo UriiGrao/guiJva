@@ -47,7 +47,6 @@ public class Modificar extends javax.swing.JDialog {
 
         boxInstru = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        textGenM = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         boxNivel = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
@@ -59,6 +58,7 @@ public class Modificar extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         selectedPartitura = new javax.swing.JButton();
+        boxGen = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -102,6 +102,8 @@ public class Modificar extends javax.swing.JDialog {
             }
         });
 
+        boxGen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "rock", "pop", "jazz" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,8 +118,9 @@ public class Modificar extends javax.swing.JDialog {
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textGenM, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(boxInstru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(boxInstru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxGen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(radioImpreso)
@@ -160,7 +163,7 @@ public class Modificar extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(textGenM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxGen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -171,7 +174,7 @@ public class Modificar extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bUpdate)
                     .addComponent(buttonClose))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -180,10 +183,14 @@ public class Modificar extends javax.swing.JDialog {
     private void buttonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCloseActionPerformed
         Modificar.this.dispose();
     }//GEN-LAST:event_buttonCloseActionPerformed
-
+    /**
+     * Funcion que te deja elegir entre tus partituras y la puedes modificar
+     *
+     * @param evt
+     */
     private void bUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bUpdateActionPerformed
         String instrumento = (String) boxInstru.getSelectedItem();
-        String genMusical = textGenM.getText();
+        String genMusical = (String) boxGen.getSelectedItem();
         String nDificultat = (String) boxNivel.getSelectedItem();
         boolean impreso = radioImpreso.isSelected();
 
@@ -213,7 +220,9 @@ public class Modificar extends javax.swing.JDialog {
     private void selectedPartituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectedPartituraActionPerformed
         isSelected = true;
     }//GEN-LAST:event_selectedPartituraActionPerformed
-
+    /**
+     * Funcion para ver las partituras en el select.
+     */
     private void verPartituras() {
         ArrayList<String> listaPartis = Functions.getAllpartisName(user);
         deleteSelect.setModel(new DefaultComboBoxModel(listaPartis.toArray()));
@@ -221,6 +230,7 @@ public class Modificar extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bUpdate;
+    private javax.swing.JComboBox<String> boxGen;
     private javax.swing.JComboBox<String> boxInstru;
     private javax.swing.JComboBox<String> boxNivel;
     private javax.swing.JButton buttonClose;
@@ -233,6 +243,5 @@ public class Modificar extends javax.swing.JDialog {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JRadioButton radioImpreso;
     private javax.swing.JButton selectedPartitura;
-    private javax.swing.JTextField textGenM;
     // End of variables declaration//GEN-END:variables
 }

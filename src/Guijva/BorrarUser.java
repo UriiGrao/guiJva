@@ -21,6 +21,7 @@ public class BorrarUser extends javax.swing.JDialog {
 
     /**
      * Creates new form BorrarUser
+     *
      * @param parent
      * @param modal
      */
@@ -92,7 +93,11 @@ public class BorrarUser extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * funcion para borrar el usuario que solo ve el admin.
+     *
+     * @param evt
+     */
     private void bDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeleteActionPerformed
         String userName = (String) deleteSelect.getSelectedItem();
 

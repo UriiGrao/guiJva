@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Guijva;
 
 import javax.swing.*;
@@ -12,6 +7,7 @@ import Utils.*;
 import Persistence.*;
 
 /**
+ * Jdialo para dar de alta a usuarios solo lo ve admin.
  *
  * @author uriigrao
  */
@@ -108,7 +104,11 @@ public class AltaUser extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Funcion del boton registrar Usuarios. Dando los mensajes adecuados
+     *
+     * @param evt
+     */
     private void registrarUser(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarUser
         String userName = textUserName.getText();
         String pass = textPass.getText();
@@ -133,7 +133,11 @@ public class AltaUser extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Error algun Campo esta Vacio", "Error Alta", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_registrarUser
-
+    /**
+     * Funcion del boton cerrar pestaña.
+     *
+     * @param evt
+     */
     private void bCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCloseActionPerformed
         this.dispose();
     }//GEN-LAST:event_bCloseActionPerformed

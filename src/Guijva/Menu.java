@@ -7,6 +7,7 @@ package Guijva;
 
 import App.*;
 import Models.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -161,15 +162,23 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAltaPartiActionPerformed
 
     private void buttonModiPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModiPartiActionPerformed
-        Modificar pestaa = new Modificar(null, true, this.user);
-        pestaa.setLocationRelativeTo(null);
-        pestaa.setVisible(true);
+        if (user.getPartituras().size() > 0) {
+            Modificar pestaa = new Modificar(null, true, this.user);
+            pestaa.setLocationRelativeTo(null);
+            pestaa.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "No Tienes Partituras a Modificar", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_buttonModiPartiActionPerformed
 
     private void buttonBorrarPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBorrarPartiActionPerformed
-        BorrarParti pestaa = new BorrarParti(null, true, this.user);
-        pestaa.setLocationRelativeTo(null);
-        pestaa.setVisible(true);
+        if (user.getPartituras().size() > 0) {
+            BorrarParti pestaa = new BorrarParti(null, true, this.user);
+            pestaa.setLocationRelativeTo(null);
+            pestaa.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "No Tienes Partituras a Borrar", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_buttonBorrarPartiActionPerformed
 
     private void buttonDarAltaUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDarAltaUserActionPerformed
@@ -185,9 +194,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVerPartiActionPerformed
 
     private void buttonBorrarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBorrarUserActionPerformed
-        BorrarUser pestaa = new BorrarUser(null, true);
-        pestaa.setLocationRelativeTo(null);
-        pestaa.setVisible(true);
+        if (App.users.size() > 1) {
+            BorrarUser pestaa = new BorrarUser(null, true);
+            pestaa.setLocationRelativeTo(null);
+            pestaa.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "No Tienes Usuarios a Borrar", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_buttonBorrarUserActionPerformed
 
     private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
