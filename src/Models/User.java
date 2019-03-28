@@ -62,7 +62,7 @@ public class User {
 
     @Override
     public String toString() {
-        String string = getUserName() + " " + getPassword();
+        String string = getUserName() + "," + getPassword();
         return string;
     }
 }

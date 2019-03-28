@@ -1,4 +1,2 @@
-admin admin
-mireis 1234
-tester tester
-Mojave Mojave
+admin,admin
+test,test

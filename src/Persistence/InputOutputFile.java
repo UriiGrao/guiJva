@@ -17,6 +17,11 @@ import java.io.*;
  */
 public class InputOutputFile {
 
+    /**
+     * funcion para leer los dos fichero el de usuarios y el de partituras,
+     * guardamos los usuarios en un HashMap y las partituras en cada usuario mas
+     * un arrayList
+     */
     public static void leerFicheros() {
         File usersF = new File("usuarios.txt");
         File partis = new File("partis.txt");
@@ -47,12 +52,12 @@ public class InputOutputFile {
             String line;
 
             while ((line = brU.readLine()) != null) {
-                String[] breakLine = line.split(" ");
+                String[] breakLine = line.split(",");
                 User user = new User(breakLine[0], breakLine[1]);
                 users.put(breakLine[0], user);
             }
             while ((line = brP.readLine()) != null) {
-                String[] breakLine = line.split(" ");
+                String[] breakLine = line.split(",");
                 boolean imp = Boolean.parseBoolean(breakLine[7]);
                 Partituras partitura = new Partituras(breakLine[1], breakLine[2], breakLine[3],
                         breakLine[4], breakLine[5], breakLine[6], imp);
@@ -94,7 +99,7 @@ public class InputOutputFile {
         try {
             File partituraF = new File("partis.txt");
             bw = new BufferedWriter(new FileWriter(partituraF, true));
-            bw.write(user.getUserName() + " " + partitura.toString());
+            bw.write(user.getUserName() + "," + partitura.toString());
             bw.newLine();
             bw.close();
         } catch (IOException ex) {
@@ -167,7 +172,7 @@ public class InputOutputFile {
             writer = new BufferedWriter(new FileWriter(tempFile));
 
             while ((currentLine = reader.readLine()) != null) {
-                String[] line = currentLine.split(" ");
+                String[] line = currentLine.split(",");
 
                 if (line[0].equals(lineToRemove)) {
                     continue;
@@ -196,7 +201,7 @@ public class InputOutputFile {
         BufferedWriter writer = null;
         BufferedReader reader = null;
 
-        String lineToRemove = user.getUserName() + " " + codePartitura;
+        String lineToRemove = user.getUserName() + "," + codePartitura;
         String currentLine;
 
         File fPartis = new File("partis.txt");
@@ -208,7 +213,7 @@ public class InputOutputFile {
             while ((currentLine = reader.readLine()) != null) {
                 String[] line = currentLine.split(" ");
 
-                if (lineToRemove.equals(line[0] + " " + line[1])) {
+                if (lineToRemove.equals(line[0] + "," + line[1])) {
                     continue;
                 }
                 writer.write(currentLine + System.getProperty("line.separator"));

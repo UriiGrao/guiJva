@@ -195,7 +195,7 @@ public class Modificar extends javax.swing.JDialog {
         boolean impreso = radioImpreso.isSelected();
 
         String codeNamePartitura = (String) deleteSelect.getSelectedItem();
-        String[] parti = codeNamePartitura.split(" ");
+        String[] parti = codeNamePartitura.split(",");
         String codePartitura = parti[0];
 
         Map<String, Partituras> partiturasUser = this.user.getPartituras();

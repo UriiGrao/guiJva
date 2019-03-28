@@ -160,7 +160,12 @@ public class Menu extends javax.swing.JFrame {
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonAltaPartiActionPerformed
-
+    /**
+     * Botton para modificar partituras, si las partituras del usuario son 0
+     * muestra un mensaje.
+     *
+     * @param evt
+     */
     private void buttonModiPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModiPartiActionPerformed
         if (user.getPartituras().size() > 0) {
             Modificar pestaa = new Modificar(null, true, this.user);
@@ -170,7 +175,12 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No Tienes Partituras a Modificar", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonModiPartiActionPerformed
-
+    /**
+     * Botton para borrar partituras, si las partituras del usuario son 0
+     * muestra un mensaje.
+     *
+     * @param evt
+     */
     private void buttonBorrarPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBorrarPartiActionPerformed
         if (user.getPartituras().size() > 0) {
             BorrarParti pestaa = new BorrarParti(null, true, this.user);
@@ -180,19 +190,33 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No Tienes Partituras a Borrar", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonBorrarPartiActionPerformed
-
+    /**
+     * Botton para dar de alta un usuario solo el admin ve este boton.
+     *
+     * @param evt
+     */
     private void buttonDarAltaUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDarAltaUserActionPerformed
         AltaUser pestaa = new AltaUser(null, true);
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonDarAltaUserActionPerformed
-
+    /**
+     * botton para ver todas las partituras de todos los usuarios puede
+     * filtrarse.
+     *
+     * @param evt
+     */
     private void buttonVerPartiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVerPartiActionPerformed
         VerPartis pestaa = new VerPartis(null, true, this.user);
         pestaa.setLocationRelativeTo(null);
         pestaa.setVisible(true);
     }//GEN-LAST:event_buttonVerPartiActionPerformed
-
+    /**
+     * botton para ver todos los usuarios y poder borrar uno, solo lo ve el
+     * admin
+     *
+     * @param evt
+     */
     private void buttonBorrarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBorrarUserActionPerformed
         if (App.users.size() > 1) {
             BorrarUser pestaa = new BorrarUser(null, true);
@@ -202,11 +226,18 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No Tienes Usuarios a Borrar", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonBorrarUserActionPerformed
-
+    /**
+     * boton de salida del programa.
+     */
     private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_buttonExitActionPerformed
-
+    /**
+     * boton para ver los totales de cuantas partituras cuantas de cada
+     * instrumento tipo etcs..
+     *
+     * @param evt
+     */
     private void totalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalesActionPerformed
         Totales pestaa = new Totales(null, true);
         pestaa.setLocationRelativeTo(null);
@@ -225,6 +256,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton totales;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * function que verifica si el usuario es administrador o no.
+     *
+     * @param nameUser
+     */
     private void veriryAdmin(String nameUser) {
         if (!nameUser.equals("admin")) {
             buttonDarAltaUser.setVisible(false);
